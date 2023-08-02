@@ -1,18 +1,18 @@
 public class Tester {
     public static void main(String[] args) {
-        // Create two Employee objects
-        Employee employee1 = new Employee("Mike", "Doe", "123 Main St");
-        Employee employee2 = new Employee("Jane", "Smith", "456 Oak Ave");
+        // Creazione di due oggetti Employee
+        Employee employee1 = new Employee("Mario", "Rossi", "Via Roma 1");
+        Employee employee2 = new Employee("Luca", "Bianchi", "Via Milano 10");
 
-        // Create their respective badges
+        // Creazione dei relativi badge
         Badge badge1 = new Badge(employee1);
         Badge badge2 = new Badge(employee2);
 
-        // Show badge details for both employees
-        System.out.println("Employee 1 Badge Details:");
+        // Mostra i dati dei tesserini dei due dipendenti
+        System.out.println("Badge 1 details:");
         badge1.showBadgeDetails();
 
-        System.out.println("\nEmployee 2 Badge Details:");
+        System.out.println("\nBadge 2 details:");
         badge2.showBadgeDetails();
     }
 }
