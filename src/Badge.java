@@ -1,3 +1,5 @@
+import java.util.Random;
+
 class Badge {
     private static int totalNumberOfEmployees = 0;
     private String badgeIdCode;
@@ -7,21 +9,34 @@ class Badge {
         totalNumberOfEmployees++;
     }
 
-    private String generateBadgeIdCode(String name, String surname) {
-        String randomCode1 = "XYZ";
-        String randomCode2 = "ZYX";
-        return randomCode1 + name + surname + randomCode2;
+    private static String generateBadgeIdCode(Employee employee) {
+        Random random = new Random();
+        String randomCode1 = getRandomString(3);
+        String randomCode2 = getRandomString(3);
+        String nameSurname = employee.name + employee.surname;
+        return randomCode1 + nameSurname + randomCode2;
     }
 
-    public void showBadgeDetails() {
-        System.out.println("Total number of employees tracked by badges: " + totalNumberOfEmployees);
-        System.out.println("Employee details:\n" + employee.getEmployeeDetails());
-        System.out.println("Badge ID Code: " + badgeIdCode);
+    private static String getRandomString(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder randomString = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            char randomChar = characters.charAt(random.nextInt(characters.length()));
+            randomString.append(randomChar);
+        }
+        return randomString.toString();
     }
 
     public Badge(Employee employeeThatNeedsBadge) {
-        employee = employeeThatNeedsBadge;
         keepTrackOfEmployeesNumber();
-        badgeIdCode = generateBadgeIdCode(employee.name, employee.surname);
+        employee = employeeThatNeedsBadge;
+        badgeIdCode = generateBadgeIdCode(employee);
+    }
+
+    public void showBadgeDetails() {
+        System.out.println("Total number of employees monitored by badges: " + totalNumberOfEmployees);
+        System.out.println(employee.getEmployeeDetails());
+        System.out.println("Badge ID Code: " + badgeIdCode);
     }
 }
