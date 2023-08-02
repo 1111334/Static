@@ -1,5 +1,3 @@
-//import java.util.Random;
-
 class Employee {
     String name;
     String surname;
@@ -12,6 +10,6 @@ class Employee {
     }
 
     public String getEmployeeDetails() {
-        return "Name: " + name + "\nSurname: " + surname + "\nAddress: " + address;
+        return "Name: " + name + ", Surname: " + surname + ", Address: " + address;
     }
 }
